@@ -31,11 +31,6 @@ blocks:
             - cache store gradle-wrapper ~/.gradle/wrapper
             - cache store gradle-cache ~/.gradle/caches
             - cache store android-build ~/.android/build-cache
-      secrets:
-        - name: Key Pair
-      env_vars:
-        - name: FOO_111
-          value: BAR_111
   - name: Verification
     task:
       jobs:
@@ -49,6 +44,8 @@ blocks:
         always:
           commands:
             - artifact push job --expire-in 2w --destination reports/ app/build/reports/
+      secrets:
+        - name: Key Pair
 promotions:
   - name: Start Integration tests
     pipeline_file: integration-tests.yml
