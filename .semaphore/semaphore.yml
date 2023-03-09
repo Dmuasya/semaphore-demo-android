@@ -49,18 +49,6 @@ blocks:
         always:
           commands:
             - artifact push job --expire-in 2w --destination reports/ app/build/reports/
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - checkout
-      jobs:
-        - name: Unit tests
-          commands:
-            - echo 'running unit tests'
-        - name: Integration tests
-          commands:
-            - echo 'running integration tests'
 promotions:
   - name: Start Integration tests
     pipeline_file: integration-tests.yml
