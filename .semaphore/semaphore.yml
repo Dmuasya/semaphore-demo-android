@@ -20,7 +20,6 @@ global_job_config:
     - name: android_keys
   prologue:
     commands:
-      - checkout
       - mv ~/release-keystore.jks ~/$SEMAPHORE_GIT_DIR/app/release-keystore.jks
       - cache restore gradle-wrapper
       - cache restore gradle-cache
